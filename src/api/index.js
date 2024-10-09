@@ -9,10 +9,10 @@ const fetchAllBooks = async () => {
     try {
         const response = await fetch(`${API_URL}/books`);
         const result = await response.json();
-        console.log("API Response:", result); 
+        // console.log("API Response:", result); 
         return Array.isArray(result.books) ? result.books : []; 
     } catch (error) {
-      console.error("There was an error fetching all books", error);
+    //   console.error("There was an error fetching all books", error);
       return []; 
     }
 }
