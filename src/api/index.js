@@ -23,3 +23,24 @@ export const registerUser = async (firstName, lastName, email, password) => {
     }
 
 };
+
+export const loginUser = async (email, password) => {
+    try {
+        const response = await fetch(`${API_URL}/api/users/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+        });
+        const result = await response.json();
+        return result;
+    }   catch (error) {
+        console.error("issue with the /POST login users", error);
+    }
+
+};
+
