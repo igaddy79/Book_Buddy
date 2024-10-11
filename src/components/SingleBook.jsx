@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./SingleBook.css";
+import { Link } from "react-router-dom";
 
 function SingleBook() {
   const [book, setBook] = useState(null);
@@ -32,10 +33,20 @@ function SingleBook() {
   } else {
     return (
       <div>
-        <h1>{book.title}</h1>
-        <img src={book.coverimage} alt="" className="bookCover" />
-        <p>Author: {book.author}</p>
-        <p>{book.description}</p>
+        <div className="book">
+          <div className="bookCover">
+            <img src={book.coverimage} alt="" />
+          </div>
+          <h1>{book.title}</h1>
+          <hr />
+          <div className="details">
+            <p>Author: {book.author}</p>
+            <p>{book.description}</p>
+            <Link Link to="../../" className="link">
+              Go Back
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
