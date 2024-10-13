@@ -1,0 +1,29 @@
+body {
+  background-color: blanchedalmond;
+}
+
+.bookCover {
+  display: flex;
+  justify-content: center;
+}
+
+.bookCover img {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+}
+
+.details {
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
