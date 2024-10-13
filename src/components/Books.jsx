@@ -10,7 +10,7 @@ export default function Books() {
     async function getAllBooks() {
       try {
         const booksData = await fetchAllBooks();
-        console.log("Fetched Books Data:", booksData);
+        // console.log("Fetched Books Data:", booksData);
         setBooks(booksData || []);
       
       }catch (error) {
