@@ -1,13 +1,22 @@
-body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
-  margin: 0;
-  padding: 0;
+
+h1 {
+  display: flex;              
+  align-items: center;        
+  justify-content: flex-start;
+  margin-top: 20px;           
+  margin-left: 20px;          
+  font-size: 36px;            
+  color: #333;                
 }
+
 
 #logo-image {
-  width: 30px;
-  margin-right: 10px;
+  width: 50px;               
+  height: auto;               
+  margin-right: 10px;        
 }
 
-/* Add your own custom styles here */
+
+body {
+  padding-top: 40px;          
+}
