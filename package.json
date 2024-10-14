@@ -23,5 +23,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
+  },
+  "data": {
+    "books": [
+      { "id": 1, "title": "Book Title 1" },
+      { "id": 2, "title": "Book Title 2" }
+    ]
   }
 }
