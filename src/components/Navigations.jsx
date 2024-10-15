@@ -14,7 +14,7 @@ export default function Navigations() {
           <Link to="/Books">All Books</Link>
         </li>
         <li>
-          <Link to="/SingleBook">Single Book</Link>
+          <Link to="/SingleBook">My Book List</Link>
         </li>
         <li>
           <Link to="/Register">Register</Link>
