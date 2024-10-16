@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 export default function Navigations() {
@@ -14,7 +18,11 @@ export default function Navigations() {
           <Link to="/Books">All Books</Link>
         </li>
         <li>
+
+          <Link to="/SingleBook">Single Book</Link>
+
           <Link to="/SingleBook">My Book List</Link>
+
         </li>
         <li>
           <Link to="/Register">Register</Link>

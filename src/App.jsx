@@ -2,11 +2,17 @@ import { useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import bookLogo from "./assets/books.png";
 import Books from './components/Books';
+
+import Navigations from './components/Navigations';
+import Register from "./components/Register";
+import Login from "./components/Login";
+
 import Login from "./components/Login";
 import Navigations from './components/Navigations';
 import Register from "./components/Register";
 import SingleBook from './components/SingleBook';
 import './index.css';
+
 
 
 function App() {
@@ -27,7 +33,10 @@ function App() {
       <Route path="/Books" element={<Books />} />
       <Route path="/Register" element={<Register />} />
       <Route path="/Login" element={<Login />} />
+
+
       <Route path="/SingleBook" element={<SingleBook />} />
+
       <Route path="/Books/:id" element={<h1>Single Books</h1>} />  
     </Routes>
   </>
