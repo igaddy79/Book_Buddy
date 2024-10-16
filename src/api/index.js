@@ -2,6 +2,7 @@
 
 
 
+
 const API_URL = `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api`;
 /*TODO Books /Get */
 
@@ -19,6 +20,9 @@ const fetchAllBooks = async () => {
 }
 export { fetchAllBooks };
 
+
+
+const API_URL = `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api`;
 
 
 export const registerUser = async (firstName, lastName, email, password) => {
