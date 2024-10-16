@@ -53,7 +53,6 @@ function Account({ token, setToken }) {
     return <Navigate to="/login" />;
   }
 
- 
 
   return (
     <div>
@@ -64,7 +63,7 @@ function Account({ token, setToken }) {
       <button onClick={logout}>Logout</button>
       <h2>Books Checked Out</h2>
       <ul>
-        {account?.books?.map((book) => (
+        {account.books?.map((book) => (
           <li key={book.id}>{book.title} <button onClick={()=>returnbook(book.id)}>Return Book</button></li>
         ))}
       </ul>
