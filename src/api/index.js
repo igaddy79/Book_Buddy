@@ -20,16 +20,16 @@ const fetchAllBooks = async () => {
 }
 export { fetchAllBooks };
 
-export const registerUser = async (firstName, lastName, email, password) => {
+export const registerUser = async (firstname, lastname, email, password) => {
     try {
-        const response = await fetch(`${API_URL}/api/users/register`, {
+        const response = await fetch(`${API_URL}/users/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
+                firstName: firstname,
+                lastName: lastname,
                 email: email,
                 password: password,
             }),
@@ -44,7 +44,7 @@ export const registerUser = async (firstName, lastName, email, password) => {
 
 export const loginUser = async (email, password) => {
     try {
-        const response = await fetch(`${API_URL}/api/users/login`, {
+        const response = await fetch(`${API_URL}/users/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

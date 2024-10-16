@@ -53,6 +53,8 @@ function Account({ token, setToken }) {
     return <Navigate to="/login" />;
   }
 
+ 
+
   return (
     <div>
       <h2>Account Details</h2>

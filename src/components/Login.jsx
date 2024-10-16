@@ -1,14 +1,21 @@
 import { useState } from "react";
 import './loginregister.css';
+import { loginUser } from "../api";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+
+const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+const navigate=useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const login= await loginUser(email, password);
+    console.log(login)
+    setToken(login.token)
     setEmail("");
     setPassword("");
+    navigate("/books")
   };
 
   return (
