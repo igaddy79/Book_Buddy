@@ -48,7 +48,7 @@ function Account({ token, setToken }) {
       })
       .catch(console.error);
   }
-// hello
+// hello ...
   if (!token) {
     return <Navigate to="/login" />;
   }
