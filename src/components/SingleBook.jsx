@@ -8,7 +8,7 @@ import { useState } from "react";
 import "./SingleBook.css";
 import { Link } from "react-router-dom";
 
-function SingleBook() {
+function SingleBook({token}) {
   const [book, setBook] = useState(null);
   const id = useParams().id;
   const API_URL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
@@ -24,6 +24,26 @@ function SingleBook() {
     }
     getBook();
   }, []);
+
+  function checkoutbook() {
+    fetch(`${API_URL}/books/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        available: false,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        navigate("/account");
+      })
+      .catch(console.error);
+  }
+
   if (!book) {
     return (
       <div>
@@ -42,9 +62,12 @@ function SingleBook() {
           <div className="details">
             <p>Author: {book.author}</p>
             <p>{book.description}</p>
-            <Link Link to="../../" className="link">
-              Go Back
-            </Link>
+
+            {token && <button onClick={checkoutbook}>Checkout</button>}
+
+            {/* <Link Link to="../../" className="link">
+             Go Back
+            </Link> */}
           </div>
         </div>
       </div>

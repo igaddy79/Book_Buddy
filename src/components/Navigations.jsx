@@ -11,21 +11,28 @@ export default function Navigations() {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/Login">Login</Link>
+
+      <li>
+          <Link to="/Account">Account</Link>
         </li>
+
         <li>
           <Link to="/Books">All Books</Link>
         </li>
-        <li>
 
-         
+        <li>       
           <Link to="/SingleBook">My Book List</Link>
-
         </li>
+
+        <li>
+          <Link to="/Login">Login</Link>
+        </li>
+
         <li>
           <Link to="/Register">Register</Link>
         </li>
+
+        
       </ul>
     </nav>
   );

@@ -15,7 +15,7 @@ const navigate=useNavigate()
     setToken(login.token)
     setEmail("");
     setPassword("");
-    navigate("/books")
+    navigate("/account")
   };
 
   return (
