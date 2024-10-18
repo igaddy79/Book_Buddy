@@ -7,8 +7,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "./SingleBook.css";
 import { Link } from "react-router-dom";
+import { updateBook } from "../api";
 
-function SingleBook({token}) {
+function SingleBook({ token }) {
   const [book, setBook] = useState(null);
   const id = useParams().id;
   const API_URL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
@@ -25,23 +26,8 @@ function SingleBook({token}) {
     getBook();
   }, []);
 
-  function checkoutbook() {
-    fetch(`${API_URL}/books/${id}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-      method: "PATCH",
-      body: JSON.stringify({
-        available: false,
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        navigate("/account");
-      })
-      .catch(console.error);
+  function handleClick() {
+    updateBook(token, id, true);
   }
 
   if (!book) {
@@ -63,7 +49,9 @@ function SingleBook({token}) {
             <p>Author: {book.author}</p>
             <p>{book.description}</p>
 
-            {token && <button onClick={checkoutbook}>Checkout</button>}
+            {token && book.available && (
+              <button onClick={handleClick}>Checkout</button>
+            )}
 
             {/* <Link Link to="../../" className="link">
              Go Back

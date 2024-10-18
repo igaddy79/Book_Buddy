@@ -13,10 +13,11 @@ function App() {
   const [token, setToken] = useState(null);
   useEffect(() => {
     if (token) {
-      localStorage.setItem('token',token)
-
-    }else {localStorage.removeItem('token')}
-  },[token])
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
   return (
     <BrowserRouter>
       <>
@@ -30,10 +31,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Books" />} />
           <Route path="/Books" element={<Books />} />
-          <Route path="/Register" element={<Register setToken = { setToken } />} />
-          <Route path="/Login" element={<Login setToken = { setToken } />} />
-          <Route path="/Books/:id" element={<SingleBook />} />
-          <Route path="/account" element={<Account token={token} setToken={setToken}/>} />
+          <Route path="/Register" element={<Register setToken={setToken} />} />
+          <Route path="/Login" element={<Login setToken={setToken} />} />
+          <Route path="/Books/:id" element={<SingleBook token={token} />} />
+          <Route
+            path="/account"
+            element={<Account token={token} setToken={setToken} />}
+          />
         </Routes>
       </>
     </BrowserRouter>
