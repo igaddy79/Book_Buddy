@@ -9,14 +9,14 @@ const baseURL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
 function Account({ token, setToken }) {
   const [account, setAccount] = useState(token);
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     // first thing that happens
     async function getBooks() {
       const checkedOutBooks = await getCheckedOutBooks(token);
-      setBooks(checkedOutBooks);
+      setBooks(checkedOutBooks.reservation);
     }
     getBooks();
     return () => {
@@ -42,6 +42,7 @@ function Account({ token, setToken }) {
   }
 
   function returnB(book) {
+    setBooks(books.filter((b) => b != book));
     returnBook(token, book.id);
   }
   // hello ...
@@ -64,7 +65,7 @@ function Account({ token, setToken }) {
         <button onClick={logout}>Logout</button>
         <h2>Books Checked Out</h2>
         <ul>
-          {books.reservation.map((book) => (
+          {books.map((book) => (
             <li key={book.id}>
               {book.title}{" "}
               <button onClick={() => returnB(book)}>Return Book</button>

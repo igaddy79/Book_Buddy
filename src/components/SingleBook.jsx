@@ -11,6 +11,7 @@ import { updateBook } from "../api";
 
 function SingleBook({ token }) {
   const [book, setBook] = useState(null);
+  const [isAvailable, setIsAvailable] = useState(false);
   const id = useParams().id;
   const API_URL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
   useEffect(() => {
@@ -19,14 +20,16 @@ function SingleBook({ token }) {
         const response = await fetch(`${API_URL}/books/${id}`);
         const data = await response.json();
         setBook(data.book);
+        setIsAvailable(data.book.available);
       } catch (error) {
         console.log("Error fetching book", error);
       }
     }
     getBook();
-  }, []);
+  }, [isAvailable]);
 
   function handleClick() {
+    setIsAvailable(false);
     updateBook(token, id, true);
   }
 
@@ -52,6 +55,8 @@ function SingleBook({ token }) {
             {token && book.available && (
               <button onClick={handleClick}>Checkout</button>
             )}
+
+            {!book.available && <p>This book is checked out.</p>}
 
             {/* <Link Link to="../../" className="link">
              Go Back

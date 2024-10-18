@@ -29,7 +29,7 @@ export const registerUser = async (firstname, lastname, email, password) => {
       }),
     });
     const result = await response.json();
-    console.log("result", result);
+    //console.log("result", result);
     return result;
   } catch (error) {
     console.error("issue with the /POST registering users", error);
@@ -83,7 +83,6 @@ export const getCheckedOutBooks = async (token) => {
       },
     });
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.error("error getting reserved books", error);
