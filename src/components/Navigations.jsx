@@ -20,10 +20,6 @@ export default function Navigations() {
           <Link to="/Books">All Books</Link>
         </li>
 
-        <li>       
-          <Link to="/SingleBook">My Book List</Link>
-        </li>
-
         <li>
           <Link to="/Login">Login</Link>
         </li>
