@@ -81,7 +81,7 @@ function SingleBook({ token }) {
            {token && book.available ? ( // IF token AND book is availble,
              <button onClick={checkoutbook}>Checkout</button> // display BUTTTON
            ) : ( // ELSE,
-             <p>This book is checked out.</p> // display p tag
+             <p><b>This book is checked out.</b></p> // display p tag
            )}
          </div>
        </div>
